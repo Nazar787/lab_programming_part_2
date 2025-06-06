@@ -1,4 +1,9 @@
 import unittest
+import sys
+import os
+
+sys.path.append('../src')
+
 from lab7 import rabin_karp
 
 class TestRabinKarp(unittest.TestCase):
