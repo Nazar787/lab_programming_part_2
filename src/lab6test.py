@@ -1,4 +1,9 @@
 import unittest
+import sys
+import os
+
+sys.path.append('../src')
+
 from lab6 import build_graph, topological_sort
 
 class TestTopologicalSort(unittest.TestCase):
