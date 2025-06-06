@@ -1,4 +1,8 @@
 import unittest
+import sys
+import os
+
+sys.path.append('../src')
 from math import sqrt
 
 from lab_9 import search_max_len_cable
