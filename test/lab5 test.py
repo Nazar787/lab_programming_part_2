@@ -1,4 +1,9 @@
 import unittest
+import sys
+import os
+
+sys.path.append('../src')
+
 from lab5 import parse_input, bfs_shortest_path
 
 class TestBFSMaze(unittest.TestCase):
