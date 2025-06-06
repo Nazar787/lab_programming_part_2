@@ -1,0 +1,22 @@
+class BinaryTree:
+    def __init__(self, value):
+        self.value = value
+        self.left = None
+        self.right = None
+
+def  branchSums(root):
+    if not root:
+        return 0
+
+    total = 0
+
+  
+    if root.right and not root.right.left and not root.right.right:
+        total += root.right.value
+
+    total += branchSums(root.left)
+    total += branchSums(root.right)
+
+    return total
+
+
