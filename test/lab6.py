@@ -1,0 +1,41 @@
+from collections import defaultdict, deque
+
+
+def main():
+    with open('govern.in', 'r') as f:
+        lines = [line.strip() for line in f if line.strip()]
+
+    graph = defaultdict(list)
+    in_degree = defaultdict(int)
+    nodes = set()
+
+
+
+    for line in lines:
+        a, b = line.split()
+        graph[b].append(a)
+        in_degree[a] += 1
+        nodes.add(a)
+        nodes.add(b)
+    for node in nodes:
+        in_degree.setdefault(node, 0)
+    queue = deque([node for node in nodes if in_degree[node] == 0])
+    print(nodes)
+    print(in_degree)
+    print(graph)
+    result = []
+    while queue:
+        print(queue)
+        node = queue.popleft()
+        result.append(node)
+        for neighbor in graph[node]:
+            in_degree[neighbor] -= 1
+            if in_degree[neighbor] == 0:
+                queue.append(neighbor)
+
+    with open('govern.out', 'w') as f:
+        for doc in result:
+            f.write(doc + '\n')
+
+if __name__ == '__main__':
+    main()
